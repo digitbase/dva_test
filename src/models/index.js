@@ -1,25 +1,33 @@
+/* eslint-disable require-yield */
+//import request from "../utils/request.js";
 
-export default {
+import request from "../utils/request.js";
 
-  namespace: 'example',
-
-  state: {},
-
-  subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
-    },
-  },
-
+let index = {
+  namespace: "index",
+  state: { num: 1 },
   effects: {
-    *fetch({ payload }, { call, put }) {  // eslint-disable-line
-      yield put({ type: 'save' });
+    // 异步action
+    *changeNum({ payload }, { select, put, call }) {
+      {
+        payload: {
+          num: 5;
+        }
+      }
+
+      let res = yield call(request("api/search_list.php", { name: "test" }));
+      console.log(res);
+      //return "2";
     },
   },
-
   reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
+    addNum(state, { payload }) {
+      return {
+        // 返回一个新值,值不可变性
+        num: state.num + payload.num,
+      };
     },
   },
-
 };
+
+export default index;

@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 // 配置路由规则
 import { Router, Route, NavLink, Switch, Redirect } from "dva/router";
+import Home from "../components/Home.js";
 
-const Home = () => <h1>你好</h1>;
 const Test = () => <h1>test</h1>;
 
 let fn = function ({ history, app }) {
