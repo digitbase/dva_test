@@ -3,16 +3,15 @@ import React, { Fragment } from "react";
 // 配置路由规则
 import { Router, Route, NavLink, Switch, Redirect } from "dva/router";
 import Home from "../components/Home.js";
-
-const Test = () => <h1>test</h1>;
+import Signin from "../components/Signin";
 
 let fn = function ({ history, app }) {
   return (
     <Router history={history}>
-      <Fragment>
+      <Switch>
         <Route path="/home" exact component={Home}></Route>
-        <Route path="/test" exact component={Test}></Route>
-      </Fragment>
+        <Route path="/signin" exact component={Signin}></Route>
+      </Switch>
     </Router>
   );
 };

@@ -40,8 +40,7 @@ let r = Axios.create({
 
 let request = function (url = "", options = {}) {
   return function () {
-    console.log(options);
-    let result = r({
+    return r({
       url,
       method: "get",
       ...options,

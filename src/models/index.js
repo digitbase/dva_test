@@ -17,6 +17,7 @@ let index = {
 
       let res = yield call(request("api/search_list.php", { name: "test" }));
       console.log(res);
+
       //return "2";
     },
   },
