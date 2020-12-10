@@ -10,12 +10,10 @@ class Home extends Component {
         .avatar,
     };
 
-    console.log(this.state);
     this.btnClick = this.btnClick.bind(this);
   }
 
   btnClick() {
-    console.log("点击");
     this.props.dispatch({
       type: "index/changeNum",
       payload: { num: 8 },
@@ -23,7 +21,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props);
     let { avatar } = this.state;
     return (
       <Fragment>
@@ -77,10 +74,10 @@ class Home extends Component {
                   </a>
                   <ul className="list-unstyled">
                     <li>
-                      <a href="javascript:;">网站设置</a>
+                      <a href="#!">网站设置</a>
                     </li>
                     <li>
-                      <a href="javascript:;">权限管理</a>
+                      <a href="#!">权限管理</a>
                     </li>
                   </ul>
                 </li>
@@ -93,13 +90,13 @@ class Home extends Component {
               <div className="header">
                 <nav className="navbar navbar-custom">
                   <div className="navbar-header">
-                    <a href="javascript:;" className="navbar-brand">
+                    <a href="#!" className="navbar-brand">
                       <i className="fa fa-navicon"></i>
                     </a>
                   </div>
                   <ul className="nav navbar-nav navbar-right">
                     <li>
-                      <a href="javascript:;">
+                      <a href="#!">
                         <i className="fa fa-bell"></i>
                         <span className="badge">8</span>
                       </a>
@@ -111,13 +108,13 @@ class Home extends Component {
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:;">
+                      <a href="#!">
                         <i className="fa fa-sign-out"></i>
                         退出
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:;">
+                      <a href="#!">
                         <i className="fa fa-tasks"></i>
                       </a>
                     </li>

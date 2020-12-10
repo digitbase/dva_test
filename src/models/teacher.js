@@ -7,12 +7,36 @@ let teacher = {
     isLogin: false,
   },
   effects: {
+    // 更新teachers
+    *updateTeacher({ payload }, { select, put, call }) {
+      try {
+        payload.type = "teachers";
+        var res = yield call(
+          request("api/login.php", {
+            params: payload,
+            method: "post",
+          })
+        );
+
+        // 将teacher信息保存到state中
+        yield put({
+          type: "update",
+          payload: {
+            teachers: res.data.teachers,
+            total: res.data.total,
+          },
+        });
+      } catch (e) {
+        console.log("捕获异常了，不能发请求，没有登录");
+      }
+    },
+
     *doLogin({ payload }, { select, put, call }) {
       payload.type = "checkLogin";
       let res = yield call(
         request("api/login.php", { params: payload, method: "post" })
       );
-      console.log(res.data);
+
       if (res.data.code == 1) {
         window.sessionStorage.setItem(
           "user",
@@ -27,8 +51,19 @@ let teacher = {
     },
   },
   reducers: {
+    saveEditTeacher(state, { payload }) {
+      return {
+        teacher: payload.teacher,
+      };
+    },
+    update(state, { payload }) {
+      //console.log(payload.teachers);
+      return {
+        teachers: payload.teachers,
+        total: payload.total,
+      };
+    },
     changeLogin(state, { payload }) {
-      console.log("changeLogin");
       return {
         isLogin: payload.isLogin,
       };

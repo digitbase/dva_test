@@ -18,6 +18,7 @@ class TeacherList extends Component {
   componentDidMount() {
     this.loadByPage(this.state.page); // 1
   }
+
   loadByPage(num) {
     const { page, count } = this.state;
     this.props.dispatch({
@@ -53,6 +54,8 @@ class TeacherList extends Component {
 
   render() {
     let { teachers, total } = this.props;
+    console.log(this.props);
+    console.log(teachers);
     total = Math.ceil(total / this.state.count);
     const { page, q, isShow, teacher } = this.state;
     return (
@@ -62,7 +65,7 @@ class TeacherList extends Component {
 
           <ol className="breadcrumb">
             <li>
-              <a href="javascript:;">讲师管理</a>
+              <a href="#!">讲师管理</a>
             </li>
             <li className="active">讲师列表</li>
           </ol>
@@ -121,10 +124,7 @@ class TeacherList extends Component {
                           >
                             编 辑
                           </a>
-                          <a
-                            href="javascript::"
-                            className="btn btn-warning btn-xs"
-                          >
+                          <a href="#!" className="btn btn-warning btn-xs">
                             启用
                           </a>
                         </td>
@@ -155,6 +155,7 @@ class TeacherList extends Component {
 }
 
 export default connect((state) => {
+  console.log(state);
   return {
     teachers: state.teacher.teachers,
     total: state.teacher.total,
