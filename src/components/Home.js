@@ -120,9 +120,8 @@ class Home extends Component {
                     </li>
                   </ul>
                 </nav>
-                <TeacherList />
               </div>
-
+              <TeacherList />
               {/*   */}
             </div>
           </div>

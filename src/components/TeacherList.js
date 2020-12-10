@@ -43,6 +43,13 @@ class TeacherList extends Component {
       teacher,
     });
   }
+
+  closeDiaLog() {
+    this.setState({
+      isShow: false,
+    });
+  }
+
   showEdit(t) {
     this.props.dispatch({
       type: "teacher/showTeacher",
@@ -54,15 +61,17 @@ class TeacherList extends Component {
 
   render() {
     let { teachers, total } = this.props;
-    console.log(this.props);
-    console.log(teachers);
+
     total = Math.ceil(total / this.state.count);
     const { page, q, isShow, teacher } = this.state;
     return (
       <React.Fragment>
         <div className="body teacher-list">
-          <Dialog isShow={isShow} teacher={teacher} />
-
+          <Dialog
+            isShow={isShow}
+            teacher={teacher}
+            closeDiaLog={this.closeDiaLog.bind(this)}
+          />
           <ol className="breadcrumb">
             <li>
               <a href="#!">讲师管理</a>
@@ -92,11 +101,10 @@ class TeacherList extends Component {
               <thead>
                 <tr>
                   <th>编号</th>
-                  <th>姓名</th>
-                  <th>昵称</th>
-                  <th>年龄</th>
-                  <th>性别</th>
-                  <th>手机号码</th>
+                  <th>word</th>
+
+                  <th>root</th>
+
                   <th>操作</th>
                 </tr>
               </thead>
@@ -106,11 +114,9 @@ class TeacherList extends Component {
                     return (
                       <tr key={i}>
                         <td>{t.id}</td>
-                        <td>{t.username}</td>
-                        <td>{t.nickname}</td>
-                        <td>{makeAge(t.birthDay)}</td>
-                        <td>{t.gender == 1 ? "女" : "男"}</td>
-                        <td>{t.phone}</td>
+                        <td>{t.word}</td>
+
+                        <td>{t.root}</td>
                         <td>
                           <a
                             className="btn btn-info btn-xs"

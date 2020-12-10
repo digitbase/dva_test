@@ -1,0 +1,69 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js
+
+PATH: 
+  /usr/local/opt/dart/libexec:/usr/local/opt/php@5.6/sbin:/usr/local/opt/php@5.6/bin:/Users/apple/flutter/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/apple/.pub-cache/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EINVAL: invalid argument, unlink '/private/etc/apache2/doc/React/dva_test/node_modules/af-webpack/node_modules/@babel/core/node_modules/debug'
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "start": "roadhog server",
+      "build": "roadhog build",
+      "lint": "eslint --ext .js src test",
+      "precommit": "npm run lint"
+    },
+    "dependencies": {
+      "axios": "^0.21.0",
+      "bootstrap": "^4.5.3",
+      "dva": "^2.4.1",
+      "font-awesome": "^4.7.0",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0"
+    },
+    "devDependencies": {
+      "babel-plugin-dva-hmr": "^0.3.2",
+      "eslint": "^4.14.0",
+      "eslint-config-umi": "^0.1.1",
+      "eslint-plugin-flowtype": "^2.34.1",
+      "eslint-plugin-import": "^2.6.0",
+      "eslint-plugin-jsx-a11y": "^5.1.1",
+      "eslint-plugin-react": "^7.1.0",
+      "husky": "^0.12.0",
+      "redbox-react": "^1.4.3",
+      "roadhog": "^2.5.0-beta.4"
+    },
+    "name": "dva_test",
+    "version": "1.0.0",
+    "main": ".roadhogrc.mock.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/digitbase/dva_test.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/digitbase/dva_test/issues"
+    },
+    "homepage": "https://github.com/digitbase/dva_test#readme",
+    "description": ""
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

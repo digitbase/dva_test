@@ -15,9 +15,11 @@ class Dialog extends Component {
     // });
   }
   closeDialog() {
-    console.log("颠倒了");
-    this.props.isShow = false;
-    this.setState({});
+    // console.log("颠倒了");
+    // this.props.isShow = false;
+    // this.setState({});
+
+    this.props.closeDiaLog();
   }
   render() {
     const { isShow, teacher } = this.props;
@@ -41,7 +43,7 @@ class Dialog extends Component {
                 <tbody>
                   <tr>
                     <th>姓名:</th>
-                    <td>{teacher.username}</td>
+                    <td>{teacher.word}</td>
                     <th>职位:</th>
                     <td colSpan="3">2222</td>
                     <td rowSpan="4" width="128">

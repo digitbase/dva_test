@@ -7,6 +7,26 @@ let teacher = {
     isLogin: false,
   },
   effects: {
+    *search({ payload }, { select, put, call }) {
+      console.log("search", payload);
+
+      payload.type = "teachers";
+      var res = yield call(
+        request("api/login.php", {
+          params: payload,
+          method: "post",
+        })
+      );
+
+      yield put({
+        type: "update",
+        payload: {
+          teachers: res.data.data,
+          total: res.data.total,
+        },
+      });
+    },
+
     // 更新teachers
     *updateTeacher({ payload }, { select, put, call }) {
       try {
@@ -22,7 +42,7 @@ let teacher = {
         yield put({
           type: "update",
           payload: {
-            teachers: res.data.teachers,
+            teachers: res.data.data,
             total: res.data.total,
           },
         });
@@ -34,9 +54,9 @@ let teacher = {
     *doLogin({ payload }, { select, put, call }) {
       payload.type = "checkLogin";
       let res = yield call(
-        request("api/login.php", { params: payload, method: "post" })
+        request("api/login.php", { params: payload, method: "get" })
       );
-
+      console.log(res.data);
       if (res.data.code == 1) {
         window.sessionStorage.setItem(
           "user",
