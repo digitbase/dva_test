@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "dva";
-
+import TeacherList from "./TeacherList";
+import { homeSubRouters, MyRoute as Route } from "../routes";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -88,6 +89,7 @@ class Home extends Component {
           </div>
           <div className="main">
             <div className="container-fluid">
+              {/*   */}
               <div className="header">
                 <nav className="navbar navbar-custom">
                   <div className="navbar-header">
@@ -121,7 +123,10 @@ class Home extends Component {
                     </li>
                   </ul>
                 </nav>
+                <TeacherList />
               </div>
+
+              {/*   */}
             </div>
           </div>
         </div>

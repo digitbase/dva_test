@@ -8,8 +8,9 @@ let teacher = {
   },
   effects: {
     *doLogin({ payload }, { select, put, call }) {
+      payload.type = "checkLogin";
       let res = yield call(
-        request("api/login.php", { data: payload, method: "get" })
+        request("api/login.php", { params: payload, method: "post" })
       );
       console.log(res.data);
       if (res.data.code == 1) {
@@ -19,7 +20,7 @@ let teacher = {
         );
 
         yield put({ type: "changeLogin", payload: { isLogin: true } });
-        yield put(routerRedux.push("/home/list"));
+        yield put(routerRedux.push("/home"));
       } else {
         return alert("user password eror");
       }

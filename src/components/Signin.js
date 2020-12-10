@@ -37,23 +37,23 @@ class Signin extends Component {
   render() {
     return (
       <Fragment>
-        <div class="login">
-          <div class="login-wrap">
-            <div class="avatar">
-              <img src="assets/imgs/monkey.png" class="img-circle" alt="" />
+        <div className="login">
+          <div className="login-wrap">
+            <div className="avatar">
+              <img src="assets/imgs/monkey.png" className="img-circle" alt="" />
             </div>
             <form
-              class="col-xs-offset-1 col-xs-10"
+              className="col-xs-offset-1 col-xs-10"
               onSubmit={(e) => this.doLogin(e)}
             >
-              <div class="input-group input-group-lg">
-                <span class="input-group-addon">
-                  <i class="fa fa-user"></i>
+              <div className="input-group input-group-lg">
+                <span className="input-group-addon">
+                  <i className="fa fa-user"></i>
                 </span>
                 <input
                   id="name"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="用户名"
                   value={this.state.username}
                   onChange={(e) => {
@@ -61,14 +61,14 @@ class Signin extends Component {
                   }}
                 />
               </div>
-              <div class="input-group input-group-lg">
-                <span class="input-group-addon">
-                  <i class="fa fa-key"></i>
+              <div className="input-group input-group-lg">
+                <span className="input-group-addon">
+                  <i className="fa fa-key"></i>
                 </span>
                 <input
                   id="pass"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="密码"
                   value={this.state.password}
                   onChange={(e) => {
@@ -76,7 +76,10 @@ class Signin extends Component {
                   }}
                 />
               </div>
-              <button type="submit" class="btn btn-lg btn-primary btn-block">
+              <button
+                type="submit"
+                className="btn btn-lg btn-primary btn-block"
+              >
                 登 录
               </button>
             </form>
